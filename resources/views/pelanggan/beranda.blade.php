@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Beranda')
+@section('title', 'ShoeFit - Premium Footwear')
 
 @section('content')
 <!-- Hero Section -->
@@ -11,23 +11,23 @@
     </div>
     <div class="hero-container">
         <div class="hero-content">
-            <div class="hero-tag">Fusion Food &middot; Ramen &middot; Indonesia</div>
-            <h1 class="hero-title font-display">Rasa Gila yang<br>Bikin Nagih</h1>
-            <p class="hero-desc">Fusion ramen Jepang dengan cita rasa Indonesia yang berani dan otentik. Setiap mangkuk adalah petualangan rasa.</p>
+            <div class="hero-tag">Performance &middot; Style &middot; Comfort</div>
+            <h1 class="hero-title font-display">Step Into<br>Excellence</h1>
+            <p class="hero-desc">Discover premium footwear that combines cutting-edge performance with timeless style. Every step is a statement.</p>
             <div class="hero-actions">
                 <a href="{{ route('pelanggan.menu') }}" class="btn-primary btn-lg">
-                    Lihat Menu <i class="fas fa-arrow-right"></i>
+                    Explore Collection <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <strong>50+</strong>
-                    <span>Menu Varian</span>
+                    <strong>500+</strong>
+                    <span>Shoe Models</span>
                 </div>
                 <div class="hero-stat-divider"></div>
                 <div class="hero-stat">
-                    <strong>10K+</strong>
-                    <span>Mangkuk Terjual</span>
+                    <strong>50K+</strong>
+                    <span>Pairs Sold</span>
                 </div>
                 <div class="hero-stat-divider"></div>
                 <div class="hero-stat">
@@ -41,7 +41,7 @@
                 @php $featured = $produkTerlaris->first(); @endphp
                 <div class="featured-card">
                     <img src="{{ $featured->gambar_url }}" alt="{{ $featured->nama }}" class="featured-img">
-                    <span class="featured-badge">Terlaris</span>
+                    <span class="featured-badge">Best Seller</span>
                     <div class="featured-info">
                         <h3 class="featured-name">{{ $featured->nama }}</h3>
                         <p class="featured-desc">{{ Str::limit($featured->deskripsi, 60) }}</p>
@@ -51,7 +51,7 @@
                                 <form method="POST" action="{{ route('pelanggan.keranjang.tambah') }}">
                                     @csrf
                                     <input type="hidden" name="produk_id" value="{{ $featured->id }}">
-                                    <button type="submit" class="btn-add-cart" title="Tambah ke keranjang">
+                                    <button type="submit" class="btn-add-cart" title="Add to Cart">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </form>
@@ -64,16 +64,16 @@
     </div>
 </section>
 
-<!-- Menu Terlaris -->
+<!-- Featured Shoes -->
 <section class="section">
     <div class="section-container">
         <div class="section-header">
             <div>
-                <h2 class="section-title font-display">Menu Terlaris</h2>
-                <p class="section-subtitle">Ramen paling banyak dipesan oleh pelanggan</p>
+                <h2 class="section-title font-display">Trending Now</h2>
+                <p class="section-subtitle">Most loved shoes by our customers</p>
             </div>
             <a href="{{ route('pelanggan.menu', ['sort' => 'terlaris']) }}" class="btn-secondary">
-                Lihat Semua <i class="fas fa-arrow-right"></i>
+                View All <i class="fas fa-arrow-right"></i>
             </a>
         </div>
         <div class="menu-grid">
@@ -82,7 +82,7 @@
                     <div class="menu-card-img">
                         <img src="{{ $item->gambar_url }}" alt="{{ $item->nama }}">
                         @if($item->is_terlaris)
-                            <span class="menu-badge menu-badge-hot">Terlaris</span>
+                            <span class="menu-badge menu-badge-hot">Popular</span>
                         @endif
                     </div>
                     <div class="menu-card-body">
@@ -94,7 +94,7 @@
                                 <form method="POST" action="{{ route('pelanggan.keranjang.tambah') }}">
                                     @csrf
                                     <input type="hidden" name="produk_id" value="{{ $item->id }}">
-                                    <button type="submit" class="btn-add-cart" title="Tambah ke keranjang">
+                                    <button type="submit" class="btn-add-cart" title="Add to Cart">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </form>
@@ -107,14 +107,14 @@
     </div>
 </section>
 
-<!-- Menu Baru -->
+<!-- New Arrivals -->
 @if($produkBaru->isNotEmpty())
 <section class="section" style="background:var(--bg-card);">
     <div class="section-container">
         <div class="section-header">
             <div>
-                <h2 class="section-title font-display">Menu Baru</h2>
-                <p class="section-subtitle">Coba kreasi terbaru dari Dapur Gila</p>
+                <h2 class="section-title font-display">New Arrivals</h2>
+                <p class="section-subtitle">Latest additions to our premium collection</p>
             </div>
         </div>
         <div class="menu-grid">
@@ -122,7 +122,7 @@
                 <div class="menu-card">
                     <div class="menu-card-img">
                         <img src="{{ $item->gambar_url }}" alt="{{ $item->nama }}">
-                        <span class="menu-badge menu-badge-new">Baru</span>
+                        <span class="menu-badge menu-badge-new">New</span>
                     </div>
                     <div class="menu-card-body">
                         <h3 class="menu-card-title">{{ $item->nama }}</h3>
@@ -133,7 +133,7 @@
                                 <form method="POST" action="{{ route('pelanggan.keranjang.tambah') }}">
                                     @csrf
                                     <input type="hidden" name="produk_id" value="{{ $item->id }}">
-                                    <button type="submit" class="btn-add-cart" title="Tambah ke keranjang">
+                                    <button type="submit" class="btn-add-cart" title="Add to Cart">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </form>

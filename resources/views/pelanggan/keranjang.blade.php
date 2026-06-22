@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Keranjang')
+@section('title', 'Shopping Cart - ShoeFit')
 
 @section('content')
 <section class="section">
     <div class="section-container" style="max-width:900px;">
         <h2 class="section-title font-display" style="margin-bottom:2rem;">
-            <i class="fas fa-shopping-bag"></i> Keranjang
+            <i class="fas fa-shopping-bag"></i> Your Cart
         </h2>
 
         @if($items->isNotEmpty())
@@ -49,19 +49,18 @@
                     <span>Total ({{ $items->count() }} item)</span>
                     <strong class="cart-total">{{ 'Rp ' . number_format($total, 0, ',', '.') }}</strong>
                 </div>
-                <a href="{{ route('pelanggan.checkout') }}" class="btn-primary btn-full" style="margin-top:1rem;">
-                    Checkout <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="{{ route('pelanggan.menu') }}" class="btn-secondary btn-full" style="margin-top:0.5rem;text-align:center;display:block;">
-                    Lanjut Belanja
-                </a>
-            </div>
+            <a href="{{ route('pelanggan.checkout') }}" class="btn-primary btn-full" style="margin-top:1rem;">
+                Proceed to Checkout <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="{{ route('pelanggan.menu') }}" class="btn-secondary btn-full" style="margin-top:0.5rem;text-align:center;display:block;">
+                Continue Shopping
+            </a>
         @else
             <div class="empty-state">
-                <i class="fas fa-shopping-bag"></i>
-                <h3>Keranjang kosong</h3>
-                <p>Ayo mulai pilih ramen favoritmu!</p>
-                <a href="{{ route('pelanggan.menu') }}" class="btn-primary">Lihat Menu</a>
+                <i class="fas fa-shoe-prints"></i>
+                <h3>Cart is empty</h3>
+                <p>Start exploring our premium collection!</p>
+                <a href="{{ route('pelanggan.menu') }}" class="btn-primary">Browse Shoes</a>
             </div>
         @endif
     </div>
