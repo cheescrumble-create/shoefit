@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Ramen Dapur Gila')</title>
+    <title>@yield('title', 'ShoeFit - Premium Footwear')</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/contoh.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @stack('styles')
 </head>
 <body class="bg-body text-white font-body">
@@ -16,13 +16,13 @@
     <nav class="nav-main">
         <div class="nav-container">
             <a href="{{ route('beranda') }}" class="nav-brand">
-                <i class="fas fa-fire" style="color:var(--accent-light);"></i>
-                <span class="font-display" style="font-weight:700;">DapurGila</span>
+                <i class="fas fa-shoe-prints" style="color:var(--accent);"></i>
+                <span class="font-display" style="font-weight:700;">ShoeFit</span>
             </a>
 
             <div class="nav-links" id="navLinks">
-                <a href="{{ route('beranda') }}" class="nav-link {{ request()->routeIs('beranda') ? 'active' : '' }}">Beranda</a>
-                <a href="{{ route('pelanggan.menu') }}" class="nav-link {{ request()->routeIs('pelanggan.menu') ? 'active' : '' }}">Menu</a>
+                <a href="{{ route('beranda') }}" class="nav-link {{ request()->routeIs('beranda') ? 'active' : '' }}">Home</a>
+                <a href="{{ route('pelanggan.menu') }}" class="nav-link {{ request()->routeIs('pelanggan.menu') ? 'active' : '' }}">Shop</a>
             </div>
 
             <div class="nav-actions">
@@ -45,13 +45,13 @@
                         </button>
                         <div class="dropdown-menu" id="dropdownMenu">
                             @if(auth()->user()->isPelanggan())
-                                <a href="{{ route('pelanggan.profil') }}" class="dropdown-item"><i class="fas fa-user"></i> Profil</a>
-                                <a href="{{ route('pelanggan.pesanan') }}" class="dropdown-item"><i class="fas fa-receipt"></i> Pesanan Saya</a>
+                                <a href="{{ route('pelanggan.profil') }}" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                                <a href="{{ route('pelanggan.pesanan') }}" class="dropdown-item"><i class="fas fa-receipt"></i> My Orders</a>
                             @endif
                             <form method="POST" action="{{ route('logout') }}" style="width:100%;">
                                 @csrf
                                 <button type="submit" class="dropdown-item" style="width:100%;text-align:left;color:#f87171;">
-                                    <i class="fas fa-sign-out-alt"></i> Keluar
+                                    <i class="fas fa-sign-out-alt"></i> Logout
                                 </button>
                             </form>
                         </div>
@@ -87,25 +87,25 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <div style="display:flex;align-items:center;gap:0.5rem;">
-                    <i class="fas fa-fire" style="color:var(--accent-light);font-size:1.2rem;"></i>
-                    <span class="font-display" style="font-size:1.1rem;font-weight:700;">Dapur Gila</span>
+                    <i class="fas fa-shoe-prints" style="color:var(--accent);font-size:1.2rem;"></i>
+                    <span class="font-display" style="font-size:1.1rem;font-weight:700;">ShoeFit</span>
                 </div>
-                <p style="margin-top:0.5rem;">Fusion ramen dengan cita rasa Indonesia yang bikin nagih.</p>
+                <p style="margin-top:0.5rem;">Premium footwear for every step of your journey. Performance, style, and comfort combined.</p>
             </div>
             <div class="footer-links">
-                <h4>Navigasi</h4>
-                <a href="{{ route('beranda') }}">Beranda</a>
-                <a href="{{ route('pelanggan.menu') }}">Menu</a>
+                <h4>Navigation</h4>
+                <a href="{{ route('beranda') }}">Home</a>
+                <a href="{{ route('pelanggan.menu') }}">Shop</a>
             </div>
             <div class="footer-links">
-                <h4>Kontak</h4>
-                <p><i class="fas fa-phone" style="width:16px;"></i> 0812-3456-7890</p>
-                <p><i class="fas fa-envelope" style="width:16px;"></i> info@dapurgila.id</p>
-                <p><i class="fas fa-map-marker-alt" style="width:16px;"></i> Jl. Inpres V No.62 Kota Tangerang</p>
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone" style="width:16px;"></i> +1-800-SHOEFIT</p>
+                <p><i class="fas fa-envelope" style="width:16px;"></i> hello@shoefit.com</p>
+                <p><i class="fas fa-map-marker-alt" style="width:16px;"></i> 123 Fashion Ave, New York, NY</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Ramen Dapur Gila. Semua hak dilindungi.</p>
+            <p>&copy; 2025 ShoeFit. All rights reserved.</p>
         </div>
     </footer>
 
